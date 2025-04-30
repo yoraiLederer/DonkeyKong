@@ -15,9 +15,9 @@ class Environment:
         self.state = State() 
         self.delay = delay   
         self.reward = 0
-        self.gate_reward = 10
-        self.hit_reward = -10
-        self.close_to_lader_reward = 0.1
+        self.gate_reward = 1
+        self.hit_reward = -1
+        self.close_to_lader_reward = 0.2
         self.max_floor = 0
 
     def move(self, action):
@@ -42,10 +42,7 @@ class Environment:
         else:
             reward -= self.close_to_lader_reward
              
-             
-        
-        
-        
+        return reward   
         
 
     def play(self, game_bonus_sound=None, got_hit_sound=None):

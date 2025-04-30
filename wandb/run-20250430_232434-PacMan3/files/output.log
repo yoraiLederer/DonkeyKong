@@ -1,0 +1,7 @@
+chkpt: 3 epoch: 0 loss: 0.0108278 LR: [0.01] step: 1168 score: 0
+chkpt: 3 epoch: 1 loss: 0.0144172 LR: [0.01] step: 1151 score: 0
+chkpt: 3 epoch: 2 loss: 0.0137556 LR: [0.01] step: 1165 score: 0
+chkpt: 3 epoch: 3 loss: 0.0144150 LR: [0.01] step: 1280 score: 0
+chkpt: 3 epoch: 4 loss: 0.0270145 LR: [0.01] step: 1142 score: 0
+chkpt: 3 epoch: 5 loss: 0.0102489 LR: [0.01] step: 1225 score: 0
+1038

@@ -6,8 +6,9 @@ from DQN_Agent import DQN_Agent
 from ReplayBuffer import ReplayBuffer
 from Graphics import Graphics
 import os
+import wandb
 
-def main ():
+def main (chkpt):
     pygame.init()
     pygame.mixer.init()
     clock = pygame.time.Clock()
@@ -35,7 +36,23 @@ def main ():
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000], gamma=0.5)
     step = 0
     MIN_BUFFER = 100
-    
+    #endregion
+
+    #region   ############# wandb init ###########################
+    wandb.init(
+    # set the wandb project where this run will be logged
+        project="Donkey-Kong",
+        id=f'Donkey-Kong{chkpt}',
+        name=f"Donkey-Kong{chkpt}",
+        config={
+        "learning_rate": learning_rate,
+        "architecture": str(player.DQN),
+        "batch_size":batch_size,
+        "C": C
+        }
+    )
+    #endregion
+
     for epoch in range(start_epoch, ephocs):
         env.state.restart()
         done = False
@@ -87,9 +104,14 @@ def main ():
         if epoch % C == 0:
             player_hat.DQN.load_state_dict(player.DQN.state_dict())
 
-        #########################################
-        print (f'epoch: {epoch} loss: {loss:.7f} LR: {scheduler.get_last_lr()} step: {step} ' \
+        #region ####### print and log   #################################
+        print (f'chkpt: {chkpt} epoch: {epoch} loss: {loss:.7f} LR: {scheduler.get_last_lr()} step: {step} ' \
                f'score: {env.state.score}')
+        wandb.log({
+            "loos": loss,
+            "score": env.state.score,
+            "steps/100": step/100
+        })
         step = 0
         if epoch % 10 == 0:
             scores.append(env.state.score)
@@ -98,11 +120,19 @@ def main ():
 
         if epoch % 1000 == 0 and epoch > 0:
             pass
-
+        #endregion
         
 
+
+        
 
         
 if __name__ == "__main__":
-    main ()
+    if not os.path.exists("Data/checkpoit_num"):
+        torch.save(1, "Data/checkpoit_num")    
+    
+    chkpt = torch.load("Data/checkpoit_num", weights_only=False)
+    chkpt += 1
+    torch.save(chkpt, "Data/checkpoit_num")    
+    main (chkpt)
     pygame.quit()

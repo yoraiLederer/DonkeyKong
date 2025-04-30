@@ -48,8 +48,6 @@ class State:
             1: 930,
             0: 210, 
             }
-        
-        
 
     def make_board_groups (self):
         
@@ -61,8 +59,9 @@ class State:
         self.gate_Group = pygame.sprite.GroupSingle(self.gate)
 
         self.donkey_kong = DonkeyKong((MAIN_CENTER //2, MAIN_HEIGHT-TILE_SIZE), self.floor_Group)
-        self.donkey_kong_Group = pygame.sprite.GroupSingle(self.donkey_kong)
-        
+        # self.donkey_kong_Group = pygame.sprite.GroupSingle(self.donkey_kong)
+        self.donkey_kong_Group = pygame.sprite.GroupSingle()
+
         self.mario = Mario((SCREEN_WIDTH-100, MAIN_HEIGHT-TILE_SIZE), self.floor_Group, self.ladder_Group)
         self.mario_Group = pygame.sprite.GroupSingle(self.mario)      
         
@@ -159,10 +158,15 @@ class State:
         state_list.append((self.platforms_ends[mario_platform][1] - mario_x)/MAIN_WIDTH  )  # distance to right platform [0, 1]
 
         #Donkey_kong
-        donkey_x = self.donkey_kong.rect.centerx
-        donkey_platform = 0
-        state_list.append((donkey_x - mario_x)/ MAIN_WIDTH)     # dist to mario
-        state_list.append(donkey_platform)                      # donkey_platform
+        donkey = next(iter(self.donkey_kong_Group), None)
+        if donkey:
+            donkey_x = self.donkey_kong.rect.centerx
+            donkey_platform = 0
+            state_list.append((donkey_x - mario_x)/ MAIN_WIDTH)     # dist to mario
+            state_list.append(donkey_platform)                      # donkey_platform
+        else:
+            state_list.append(0)     # dist to mario
+            state_list.append(0)                      # donkey_platform
 
         #barrel
         first_barrel = next(iter(self.barrel_Group), None)

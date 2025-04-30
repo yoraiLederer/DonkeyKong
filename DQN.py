@@ -10,7 +10,7 @@ layer2 = 64
 layer3 = 32
 # layer2 = 64
 output_size = 6 # Q(state)-> 4 value of stay, left, right,up,down,jump
-gamma = 0.99 
+gamma = 0.95 
  
 
 class DQN (nn.Module):

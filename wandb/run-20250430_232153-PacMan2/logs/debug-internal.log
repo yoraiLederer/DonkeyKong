@@ -1,0 +1,18 @@
+{"time":"2025-04-30T23:21:54.0232371+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"C:\\Users\\Gilad\\Markman Dropbox\\Gilad Markman\\Python\\DonkeyKong\\wandb\\run-20250430_232153-PacMan2\\logs\\debug-core.log"}
+{"time":"2025-04-30T23:21:54.5000941+03:00","level":"INFO","msg":"created new stream","id":"PacMan2"}
+{"time":"2025-04-30T23:21:54.5000941+03:00","level":"INFO","msg":"stream: started","id":"PacMan2"}
+{"time":"2025-04-30T23:21:54.5000941+03:00","level":"INFO","msg":"sender: started","stream_id":"PacMan2"}
+{"time":"2025-04-30T23:21:54.5000941+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"PacMan2"}
+{"time":"2025-04-30T23:21:54.5000941+03:00","level":"INFO","msg":"handler: started","stream_id":"PacMan2"}
+{"time":"2025-04-30T23:21:54.7895337+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-30T23:22:04.7900467+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-04-30T23:22:14.7908153+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-04-30T23:22:24.790211+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-04-30T23:22:32.6726236+03:00","level":"INFO","msg":"stream: closing","id":"PacMan2"}
+{"time":"2025-04-30T23:22:32.6726236+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-30T23:22:32.6731283+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-30T23:22:33.3839847+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-30T23:22:33.6595665+03:00","level":"INFO","msg":"handler: closed","stream_id":"PacMan2"}
+{"time":"2025-04-30T23:22:33.6595665+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"PacMan2"}
+{"time":"2025-04-30T23:22:33.6595665+03:00","level":"INFO","msg":"sender: closed","stream_id":"PacMan2"}
+{"time":"2025-04-30T23:22:33.6595665+03:00","level":"INFO","msg":"stream: closed","id":"PacMan2"}
