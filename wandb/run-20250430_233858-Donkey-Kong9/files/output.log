@@ -1,0 +1,13 @@
+chkpt: 9 epoch: 0 loss: 0.0099855 LR: [0.01] step: 1112 score: 0
+chkpt: 9 epoch: 1 loss: 0.0085345 LR: [0.01] step: 1232 score: 0
+chkpt: 9 epoch: 2 loss: 0.0135954 LR: [0.01] step: 1106 score: 0
+chkpt: 9 epoch: 3 loss: 0.0122346 LR: [0.01] step: 1177 score: 0
+chkpt: 9 epoch: 4 loss: 0.0166307 LR: [0.01] step: 1184 score: 0
+chkpt: 9 epoch: 5 loss: 0.0166029 LR: [0.01] step: 1252 score: 0
+chkpt: 9 epoch: 6 loss: 0.0150754 LR: [0.01] step: 1216 score: 0
+chkpt: 9 epoch: 7 loss: 0.0111022 LR: [0.01] step: 1187 score: 0
+chkpt: 9 epoch: 8 loss: 0.0098732 LR: [0.01] step: 1147 score: 0
+chkpt: 9 epoch: 9 loss: 0.0160345 LR: [0.01] step: 1181 score: 0
+chkpt: 9 epoch: 10 loss: 0.0159942 LR: [0.01] step: 1270 score: 0
+chkpt: 9 epoch: 11 loss: 0.0106111 LR: [0.01] step: 1187 score: 0
+203

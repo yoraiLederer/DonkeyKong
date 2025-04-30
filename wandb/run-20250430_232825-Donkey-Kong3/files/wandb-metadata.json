@@ -1,0 +1,16 @@
+{
+  "os":  "Windows-10-10.0.26100-SP0",
+  "python":  "CPython 3.11.8",
+  "startedAt":  "2025-04-30T20:28:25.751734Z",
+  "program":  "c:\\Users\\Gilad\\Markman Dropbox\\Gilad Markman\\Python\\DonkeyKong\\trainer.py",
+  "codePath":  "trainer.py",
+  "git":  {
+    "remote":  "https://github.com/MarkmanGilad/DonkeyKong.git",
+    "commit":  "95935d778d2df73be737a0a8e5f6f807f7a3e962"
+  },
+  "email":  "gilad@markman.co.il",
+  "root":  "C:\\Users\\Gilad\\Markman Dropbox\\Gilad Markman\\Python\\DonkeyKong",
+  "host":  "Gilad-Desktop",
+  "executable":  "C:\\Users\\Gilad\\.virtualenvs\\SpaceShipRide-0PfYb7R8\\Scripts\\python.exe",
+  "codePathLocal":  "trainer.py"
+}

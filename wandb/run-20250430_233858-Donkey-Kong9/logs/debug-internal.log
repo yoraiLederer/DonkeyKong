@@ -1,0 +1,7 @@
+{"time":"2025-04-30T23:38:58.4317399+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"C:\\Users\\Gilad\\Markman Dropbox\\Gilad Markman\\Python\\DonkeyKong\\wandb\\run-20250430_233858-Donkey-Kong9\\logs\\debug-core.log"}
+{"time":"2025-04-30T23:38:58.5441584+03:00","level":"INFO","msg":"created new stream","id":"Donkey-Kong9"}
+{"time":"2025-04-30T23:38:58.5441584+03:00","level":"INFO","msg":"stream: started","id":"Donkey-Kong9"}
+{"time":"2025-04-30T23:38:58.5448932+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Donkey-Kong9"}
+{"time":"2025-04-30T23:38:58.5448932+03:00","level":"INFO","msg":"handler: started","stream_id":"Donkey-Kong9"}
+{"time":"2025-04-30T23:38:58.5448932+03:00","level":"INFO","msg":"sender: started","stream_id":"Donkey-Kong9"}
+{"time":"2025-04-30T23:38:58.9040305+03:00","level":"INFO","msg":"Starting system monitor"}

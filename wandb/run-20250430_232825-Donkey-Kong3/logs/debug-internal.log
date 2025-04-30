@@ -1,0 +1,17 @@
+{"time":"2025-04-30T23:28:25.7533472+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"C:\\Users\\Gilad\\Markman Dropbox\\Gilad Markman\\Python\\DonkeyKong\\wandb\\run-20250430_232825-Donkey-Kong3\\logs\\debug-core.log"}
+{"time":"2025-04-30T23:28:25.8600645+03:00","level":"INFO","msg":"created new stream","id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:25.8600645+03:00","level":"INFO","msg":"stream: started","id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:25.8600645+03:00","level":"INFO","msg":"handler: started","stream_id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:25.8600645+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:25.8600645+03:00","level":"INFO","msg":"sender: started","stream_id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:26.2064445+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-30T23:28:26.243466+03:00","level":"ERROR","msg":"error writing metadata file: open C:\\Users\\Gilad\\Markman Dropbox\\Gilad Markman\\Python\\DonkeyKong\\wandb\\run-20250430_232825-Donkey-Kong3\\files\\wandb-metadata.json: The requested operation cannot be performed on a file with a user-mapped section open."}
+{"time":"2025-04-30T23:28:36.2068055+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-04-30T23:28:42.6768525+03:00","level":"INFO","msg":"stream: closing","id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:42.6774271+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-30T23:28:42.6774271+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-30T23:28:43.3432011+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-30T23:28:43.5822097+03:00","level":"INFO","msg":"handler: closed","stream_id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:43.5822097+03:00","level":"INFO","msg":"sender: closed","stream_id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:43.5822097+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"Donkey-Kong3"}
+{"time":"2025-04-30T23:28:43.5822097+03:00","level":"INFO","msg":"stream: closed","id":"Donkey-Kong3"}

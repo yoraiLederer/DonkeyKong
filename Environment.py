@@ -33,13 +33,13 @@ class Environment:
             return self.hit_reward
         
         if abs(state[dist_ladder_idx]) < abs(next_state[dist_ladder_idx]):
-            reward += self.close_to_lader_reward
-        if abs(state[dist_ladder_idx]) > abs(next_state[dist_ladder_idx]):
             reward -= self.close_to_lader_reward
+        if abs(state[dist_ladder_idx]) > abs(next_state[dist_ladder_idx]):
+            reward += self.close_to_lader_reward
 
         if state[on_ladder_idx] and action == 4:
             reward += self.close_to_lader_reward
-        else:
+        elif state[on_ladder_idx]:
             reward -= self.close_to_lader_reward
              
         return reward   

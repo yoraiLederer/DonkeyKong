@@ -231,7 +231,7 @@ class State:
         # Add a new barrel at regular intervals
         barrels_on_screen = len(self.barrel_Group)
         if self.step_to_barrel < 0:
-            self.step_to_barrel = 7
+            self.step_to_barrel = 50
         if barrels_on_screen < MAX_BARREL and self.step_to_barrel == 0:
             self.barrel_Group.add(Barrel(self.barrel_img, (0,200), self.floor_Group))
             self.step_to_barrel = random.randint(20, 150)
