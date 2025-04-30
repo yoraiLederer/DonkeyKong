@@ -21,7 +21,7 @@ class State:
         self.Board_infra = torch.tensor([160,100,260,120,280,100,620,120,0,260,940,280,960,260,1020,280,80,380,180,400,200,380,1220,400,0,500,920,520,940,500,1020,520,80,640,200,660,220,640,1220,660,0,780,1220,800,
                                      260,80,280,260,940,240,960,380,180,360,200,500,920,480,940,640,200,620,220,780], dtype=torch.float32)
 
-        self.platforms_bootoms = {      # y-coord
+        self.platforms_bottoms = {      # y-coord
             6: 0,
             5: 100,
             4: 260,
@@ -118,14 +118,14 @@ class State:
         return tensor
 
     def get_platform_num (self, y):
-        for platform, y_max in self.platforms_bootoms:
+        for platform, y_max in self.platforms_bottoms.items():
             if y < y_max:
                 return platform
         return 0  # y >= 800 → platform 0
 
     def get_platform_offset(self, platform_num, y):
-        bottom = self.platforms_bootoms[platform_num]
-        top =  self.platforms_bootoms[platform_num + 1]
+        bottom = self.platforms_bottoms[platform_num]
+        top =  self.platforms_bottoms[platform_num + 1]
         return (y-bottom) / (top-bottom)
 
     def get_tensor (self):
@@ -181,8 +181,8 @@ class State:
             state_list.append(0)        # no barrel
             state_list.append(0)        # no barrel
         
-
-
+        state_tensor = torch.tensor(state_list, dtype=torch.float32)
+        return state_tensor
 
 
     def move(self, action):

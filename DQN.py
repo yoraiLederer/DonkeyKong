@@ -4,11 +4,10 @@ import torch.nn.functional as F
 import copy
 
 # Parameters
-input_size = 112 # Q(state) see environment for state shape
-layer2 = 256
-layer1 = 256
-layer3 = 6
-# layer3 = 128
+input_size = 12 # Q(state) see environment for state shape
+layer1 = 32
+layer2 = 64
+layer3 = 32
 # layer2 = 64
 output_size = 6 # Q(state)-> 4 value of stay, left, right,up,down,jump
 gamma = 0.99 
@@ -21,8 +20,6 @@ class DQN (nn.Module):
         self.linear1 = nn.Linear(input_size, layer1)
         self.linear2 = nn.Linear(layer1, layer2)
         self.linear3 = nn.Linear(layer2, layer3)
-        # self.linear4 = nn.Linear(layer3, layer4)
-        # self.linear5 = nn.Linear(layer4, layer5)
         self.output = nn.Linear(layer3, output_size)
         self.MSELoss = nn.MSELoss()
 
@@ -33,10 +30,7 @@ class DQN (nn.Module):
         x = F.leaky_relu(x)
         x = self.linear3(x)
         x = F.leaky_relu(x)
-        # x = self.linear4(x)
-        # x = F.leaky_relu(x)
-        # x = self.linear5(x)
-        # x = F.leaky_relu(x)
+
         x = self.output(x)
         return x
     

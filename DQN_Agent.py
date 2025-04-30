@@ -40,7 +40,7 @@ class DQN_Agent:
         return max_indices.reshape(-1,1), max_values.reshape(-1,1)
 
     def Q (self, states, actions):
-        Q_values = self.DQN(states) # try: Q_values = self.DQN(states).gather(dim=1, actions) ; check if shape of actions is [-1, 1] otherwise dim=0
+        Q_values = self.DQN(states) 
         rows = torch.arange(Q_values.shape[0]).reshape(-1,1)
         cols = actions.reshape(-1,1)
         return Q_values[rows, cols]

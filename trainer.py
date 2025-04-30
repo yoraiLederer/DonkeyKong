@@ -36,12 +36,10 @@ def main ():
     step = 0
     MIN_BUFFER = 100
     
-
-
     for epoch in range(start_epoch, ephocs):
         env.state.restart()
         done = False
-        state = env.state.To_tensor() 
+        state = env.state.get_tensor() 
         step = 0
         while not done:
             print (step, end='\r')
@@ -57,10 +55,10 @@ def main ():
             ############## Sample Environement #########################
             action = player.get_action(state=state,events=events, train=True)
             env.move(action=action)
-            next_state = env.state.To_tensor()
-            reward = env.get_reward(action)
+            next_state = env.state.get_tensor()
+            reward = env.get_reward(action, state, next_state)
             done = env.play()
-            print (f'reward: {reward} action: {action} done: {done}') 
+            # print (f'reward: {reward} action: {action} done: {done}') 
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 
                         next_state, torch.tensor(done, dtype=torch.float32))
             
