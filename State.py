@@ -22,7 +22,7 @@ class State:
                                      260,80,280,260,940,240,960,380,180,360,200,500,920,480,940,640,200,620,220,780], dtype=torch.float32)
 
         self.platforms_bottoms = {      # y-coord
-            6: 0,
+            6: -100,
             5: 100,
             4: 260,
             3: 380,
@@ -41,7 +41,7 @@ class State:
         }
 
         self.platforms_ladders = {      # x-coord
-            5: -1,
+            5: 700,
             4: 270,
             3: 950,
             2: 190,
@@ -118,7 +118,7 @@ class State:
 
     def get_platform_num (self, y):
         for platform, y_max in self.platforms_bottoms.items():
-            if y < y_max:
+            if y <= y_max:
                 return platform
         return 0  # y >= 800 → platform 0
 
@@ -230,11 +230,11 @@ class State:
     def add_new_barrel(self):        
         # Add a new barrel at regular intervals
         barrels_on_screen = len(self.barrel_Group)
-        if self.step_to_barrel < 0:
-            self.step_to_barrel = 50
+        # if self.step_to_barrel < 0:
+        #     self.step_to_barrel = 50
         if barrels_on_screen < MAX_BARREL and self.step_to_barrel == 0:
             self.barrel_Group.add(Barrel(self.barrel_img, (0,200), self.floor_Group))
-            self.step_to_barrel = random.randint(20, 150)
+            self.step_to_barrel = random.randint(100, 250)
 
         
         # barrels_on_screen = 0        

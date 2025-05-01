@@ -77,6 +77,9 @@ class Mario(pygame.sprite.Sprite):
         # Update horizontal position
         self.rect.x += self.velocity_x
         
+        # reset velocity
+        self.velocity_x = 0     
+
         if self.rect.left <  0:
             self.rect.left = 0
 

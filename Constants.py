@@ -79,7 +79,7 @@ BARREL_URL = "Images/barrel.png"
 GATE_URL = "Images/gate.png"
 
 BARREL_SPEED = 5
-MAX_BARREL = 1
+MAX_BARREL = 0
 BARREL_INTERVAL = random.randint(0,2500)  # Add a new barrel every 2000 milliseconds (2 seconds)
 
 GAME_STARTED_SOUND_URL = 'Sounds\game-started.wav' # = pygame.mixer.Sound('Sounds/game-started.wav')

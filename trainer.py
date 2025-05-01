@@ -27,7 +27,7 @@ def main (chkpt):
     learning_rate = 0.01
     ephocs = 100000
     start_epoch = 0
-    C = 3
+    C = 2
     loss = torch.tensor(-1)
     avg = 0
     scores, losses, avg_score = [], [], []
@@ -36,6 +36,7 @@ def main (chkpt):
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000], gamma=0.5)
     step = 0
     MIN_BUFFER = 100
+    MAX_STEPS = 1500
     #endregion
 
     #region   ############# wandb init ###########################
@@ -58,7 +59,7 @@ def main (chkpt):
         done = False
         state = env.state.get_tensor() 
         step = 0
-        while not done:
+        while not done and step < MAX_STEPS:
             print (step, end='\r')
             step += 1
             graphics.clear_screen()

@@ -15,9 +15,9 @@ class Environment:
         self.state = State() 
         self.delay = delay   
         self.reward = 0
-        self.gate_reward = 1
-        self.hit_reward = -1
-        self.close_to_lader_reward = 0.2
+        self.gate_reward = 10
+        self.hit_reward = -10
+        self.close_to_lader_reward = 2
         self.max_floor = 0
 
     def move(self, action):
@@ -32,10 +32,12 @@ class Environment:
         if self.state.got_hit():
             return self.hit_reward
         
-        if abs(state[dist_ladder_idx]) < abs(next_state[dist_ladder_idx]):
-            reward -= self.close_to_lader_reward
-        if abs(state[dist_ladder_idx]) > abs(next_state[dist_ladder_idx]):
+        if state[dist_ladder_idx] < 0 and action == 2:
             reward += self.close_to_lader_reward
+        elif state[dist_ladder_idx] > 0 and action == 3:
+            reward += self.close_to_lader_reward
+        else:
+            reward -= self.close_to_lader_reward
 
         if state[on_ladder_idx] and action == 4:
             reward += self.close_to_lader_reward
