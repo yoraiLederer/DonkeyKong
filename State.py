@@ -127,6 +127,29 @@ class State:
         top =  self.platforms_bottoms[platform_num + 1]
         return (y-bottom) / (top-bottom)
 
+    def get_closest_barrel(self):
+        closest_barrel = None
+        min_distance = float('inf') 
+        mario_platform = self.get_platform_num(self.mario.rect.bottom) 
+        
+        for barrel in self.barrel_Group: 
+            barrel_platform = self.get_platform_num(barrel.rect.centery)    
+            
+            if barrel_platform != mario_platform:
+                continue  # Not on same platform
+
+            dx = barrel.rect.centerx - self.mario.rect.centerx
+
+            # Check if barrel is moving toward Mario
+            if (barrel.speed_dir < 0 and dx > 0) or (barrel.speed_dir > 0 and dx < 0):
+                abs_dx = abs(dx)
+                if abs_dx < min_distance:
+                    min_distance = abs_dx
+                    closest_barrel = barrel
+
+        return closest_barrel, min_distance
+
+
     def get_tensor (self):
         '''
         mario platform
@@ -139,9 +162,8 @@ class State:
         donkey dist to mario
         donkey platformm
         barrel dist to mario - if not the same platform dist very big
-        barrel platform
         barrel offset
-        # input - 12 
+        # input - 11 
         '''
         state_list = []
 
@@ -169,19 +191,13 @@ class State:
             state_list.append(0)                      # donkey_platform
 
         #barrel
-        first_barrel = next(iter(self.barrel_Group), None)
-        if first_barrel:
-            barrel_x = first_barrel.rect.centerx
-            barrel_y = first_barrel.rect.centery
-            barrel_platform = self.get_platform_num(barrel_x)
-            if barrel_platform == mario_platform:
-                state_list.append((barrel_x - mario_x)/ MAIN_WIDTH)     # dist to barrel
-            else:
-                state_list.append(2)                                    # dist to barrel - not in my platform
-            state_list.append(barrel_platform)                          # platform
+        closest_barrel, distance = self.get_closest_barrel()
+        if closest_barrel:
+            barrel_x, barrel_y  = closest_barrel.rect.center
+            barrel_platform = mario_platform                         
+            state_list.append(distance/ MAIN_WIDTH)     # dist to barrel
             state_list.append(self.get_platform_offset(barrel_platform, barrel_y)) # platform - offset
         else:
-            state_list.append(0)        # no barrel
             state_list.append(0)        # no barrel
             state_list.append(0)        # no barrel
         
@@ -234,7 +250,7 @@ class State:
         #     self.step_to_barrel = 50
         if barrels_on_screen < MAX_BARREL and self.step_to_barrel == 0:
             self.barrel_Group.add(Barrel(self.barrel_img, (0,200), self.floor_Group))
-            self.step_to_barrel = random.randint(100, 250)
+            self.step_to_barrel = random.randint(200, 400)
 
         
         # barrels_on_screen = 0        

@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import copy
 
 # Parameters
-input_size = 12 # Q(state) see environment for state shape
+input_size = 11 # Q(state) see environment for state shape
 layer1 = 32
 layer2 = 64
 # layer3 = 32
