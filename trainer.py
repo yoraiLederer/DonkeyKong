@@ -114,9 +114,8 @@ def main (chkpt):
             "steps/100": step/100
         })
         step = 0
-        # if epoch % 10 == 0:
-        #     scores.append(env.state.score)
-        #     losses.append(loss.item())
+        if epoch == 20:
+            player.save_param(f"Data/params{chkpt}")
        
 
         # if epoch % 1000 == 0 and epoch > 0:

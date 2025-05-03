@@ -45,7 +45,7 @@ class DQN_Agent:
         cols = actions.reshape(-1,1)
         return Q_values[rows, cols]
 
-    def epsilon_greedy(self,epoch, start = 0.3, final=0.01, decay=10):
+    def epsilon_greedy(self,epoch, start = 0.5, final=0.01, decay=10):
         # res = final + (start - final) * math.exp(-1 * epoch/decay)
         if epoch < decay:
             return start - (start - final) * epoch/decay

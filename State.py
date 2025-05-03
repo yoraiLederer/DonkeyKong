@@ -156,7 +156,7 @@ class State:
         mario platform offset
         mario on ladder
         mario jumping - in the air
-        mario dist to up ladder in last pltform dist to target - no dist to down ladder
+        mario dist to up ladder in last pltform dist to gate - no dist to down ladder
         mario dist to left end of platform
         mario dist to right end of platform
         donkey dist to mario

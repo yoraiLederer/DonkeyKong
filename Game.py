@@ -15,8 +15,11 @@ def main():
     graphics = Graphics(SCREEN_WIDTH, SCREEN_HEIGHT)
     env = Environment(delay=0)
     # env = Environment()      
-    # player = DQN_Agent(train=False)
-    player = Human_Agent()
+    path = "Data\params100"
+    # path = None
+    player = DQN_Agent(train=False, parametes_path=path)
+
+    # player = Human_Agent()
 
     # Game loop
     running = True
@@ -27,7 +30,7 @@ def main():
         for event in events:
             if event.type == pygame.QUIT:      
                 running = False
-        state=env.state.To_tensor() 
+        state=env.state.get_tensor() 
         if type(player) is DQN_Agent:
             action = player.get_action(state=state,events=events, train=True)
         else:
