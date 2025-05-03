@@ -41,7 +41,7 @@ class State:
         }
 
         self.platforms_ladders = {      # x-coord
-            5: 700,
+            5: 500,   # gate
             4: 270,
             3: 950,
             2: 190,
@@ -233,9 +233,10 @@ class State:
     
     def restart(self, new_game=True):
         if new_game:
-            self.score = 0  
+            self.score = 0      
             self.lives_left = MARIO_LIVES
-
+        
+        
         self.gate.rect.x = 500
         self.gate.rect.y = 0
         self.donkey_kong.rect.midbottom = (MAIN_CENTER //2, MAIN_HEIGHT-TILE_SIZE)
@@ -250,7 +251,7 @@ class State:
         #     self.step_to_barrel = 50
         if barrels_on_screen < MAX_BARREL and self.step_to_barrel == 0:
             self.barrel_Group.add(Barrel(self.barrel_img, (0,200), self.floor_Group))
-            self.step_to_barrel = random.randint(200, 400)
+            self.step_to_barrel = random.randint(50, 300)
 
         
         # barrels_on_screen = 0        
@@ -268,7 +269,7 @@ class State:
     
     def got_hit(self):        
         donkey_kong_touched = pygame.sprite.groupcollide(self.mario_Group, self.donkey_kong_Group ,False, False, collided= pygame.sprite.collide_mask) 
-        barrel_touched = pygame.sprite.groupcollide(self.mario_Group, self.barrel_Group, False, False, collided= pygame.sprite.collide_mask) 
+        barrel_touched = pygame.sprite.groupcollide(self.mario_Group, self.barrel_Group, False, True, collided= pygame.sprite.collide_mask) 
         return len(donkey_kong_touched) > 0 or len(barrel_touched) > 0
         
     def reached_gate(self):        

@@ -59,7 +59,7 @@ def main (chkpt):
         done = False
         state = env.state.get_tensor() 
         step = 0
-        while not done and step < MAX_STEPS:
+        while not done: # and step < MAX_STEPS:
             print (step, end='\r')
             step += 1
             graphics.clear_screen()
@@ -114,13 +114,13 @@ def main (chkpt):
             "steps/100": step/100
         })
         step = 0
-        if epoch % 10 == 0:
-            scores.append(env.state.score)
-            losses.append(loss.item())
+        # if epoch % 10 == 0:
+        #     scores.append(env.state.score)
+        #     losses.append(loss.item())
        
 
-        if epoch % 1000 == 0 and epoch > 0:
-            pass
+        # if epoch % 1000 == 0 and epoch > 0:
+        #     pass
         #endregion
         
 
