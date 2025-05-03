@@ -61,7 +61,7 @@ class Environment:
                     reward -= self.jump_reward
         else:
             if action == 1:   # don't jump
-                reward -=self.jump_reward/2
+                reward -=self.jump_reward
         return reward   
         
 
