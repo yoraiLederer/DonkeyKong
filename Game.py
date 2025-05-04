@@ -15,9 +15,9 @@ def main():
     graphics = Graphics(SCREEN_WIDTH, SCREEN_HEIGHT)
     env = Environment(delay=0)
     # env = Environment()      
-    path = "Data\params100"
-    # path = None
-    player = DQN_Agent(train=False, parametes_path=path)
+    # path = "Data\params100"
+    path = None
+    player = DQN_Agent(train=True, parametes_path=path)
 
     # player = Human_Agent()
 
