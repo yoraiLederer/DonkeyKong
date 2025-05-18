@@ -7,7 +7,7 @@ import copy
 input_size = 11 # Q(state) see environment for state shape
 layer1 = 32
 layer2 = 64
-layer3 = 32
+# layer3 = 32
 # layer2 = 64
 output_size = 6 # Q(state)-> 4 value of stay, left, right,up,down,jump
 gamma = 0.95 
@@ -19,8 +19,8 @@ class DQN (nn.Module):
         self.device = device
         self.linear1 = nn.Linear(input_size, layer1)
         self.linear2 = nn.Linear(layer1, layer2)
-        self.linear3 = nn.Linear(layer2, layer3)
-        self.output = nn.Linear(layer3, output_size)
+        # self.linear3 = nn.Linear(layer2, layer3)
+        self.output = nn.Linear(layer2, output_size)
         self.MSELoss = nn.MSELoss()
 
     def forward (self, x):
@@ -28,8 +28,8 @@ class DQN (nn.Module):
         x = F.relu(x)
         x = self.linear2(x)
         x = F.relu(x)
-        x = self.linear3(x)
-        x = F.relu(x)
+        # x = self.linear3(x)
+        # x = F.relu(x)
 
         x = self.output(x)
         return x

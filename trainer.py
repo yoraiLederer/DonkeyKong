@@ -24,8 +24,8 @@ def main (chkpt):
     player_hat.DQN = player.DQN.copy()
     batch_size = 50
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.01
-    ephocs = 100000
+    learning_rate = 0.001
+    ephocs = 1000
     start_epoch = 0
     C = 2
     loss = torch.tensor(-1)
@@ -109,12 +109,13 @@ def main (chkpt):
         print (f'chkpt: {chkpt} epoch: {epoch} loss: {loss:.7f} LR: {scheduler.get_last_lr()} step: {step} ' \
                f'score: {env.state.score}')
         wandb.log({
-            "loos": loss,
+            "loss": loss,
             "score": env.state.score,
-            "steps/100": step/100
+            "steps/100": step/100,
+            "steps": step
         })
         step = 0
-        if epoch == 20:
+        if epoch == 50:
             player.save_param(f"Data/params{chkpt}")
        
 

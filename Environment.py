@@ -48,7 +48,7 @@ class Environment:
                 reward -= self.close_to_lader_reward
 
 
-        DANGER_ZONE = 0.040   # ~16*7/2/1200
+        DANGER_ZONE = 0.060   # ~16*7/2/1200
         barrel_dist = state[9]   
         if  0 < barrel_dist < DANGER_ZONE: # Mario in danger zobe
             if state[3] == 0:  # not in Jumping mode 
@@ -72,7 +72,7 @@ class Environment:
             self.state.lives_left -= 1
             # Barrel.speed_add =  self.state.score
             self.state.restart(new_game=False)
-            # self.reward = self.gate_reward
+            
 
         else:        
         # got_hit = self.state.got_hit()
