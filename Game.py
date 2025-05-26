@@ -17,9 +17,9 @@ def main():
     # env = Environment()      
     path = "Data\params119"
     # path = None
-    player = DQN_Agent(train=False, parametes_path=path)
+    # player = DQN_Agent(train=False, parametes_path=path)
 
-    # player = Human_Agent()
+    player = Human_Agent()
 
     # Game loop
     running = True
